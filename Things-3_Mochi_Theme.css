@@ -1,0 +1,816 @@
+/* ============================================ */
+/* ======= Mochi Theme — Things 3 Style ======= */
+/* ============================================ */
+/* Inspired by Things 3 by Cultured Code        */
+/* Font: Inter | Modes: Light + Dark  v3        */
+/* ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+/* -------------------------------------------- */
+/* ---------------- Root styles --------------- */
+/* -------------------------------------------- */
+
+html.dark {
+  --bg-dim:    #1c1c1e;
+  --bg0:       #1c1c1e;
+  --bg1:       #2c2c2e;
+  --bg2:       #3a3a3c;
+  --bg3:       #48484a;
+  --bg4:       #636366;
+  --bg5:       #8e8e93;
+
+  --fg:           #f2f2f7;
+  --fg-secondary: rgba(235, 235, 245, 0.6);
+  --fg-tertiary:  rgba(235, 235, 245, 0.3);
+
+  --blue:      #4a9eff;
+  --blue-dim:  #1c3a5e;
+  --blue-soft: #2c4a6e;
+  --blue-hover:#243f62;
+
+  --red:       #ff453a;
+  --orange:    #ff9f0a;
+  --yellow:    #ffd60a;
+  --green:     #32d74b;
+  --aqua:      #5ac8fa;
+  --purple:    #bf5af2;
+  --pink:      #ff375f;
+
+  --bg-red:    #3d1f1f;
+  --bg-green:  #1a2e1a;
+  --bg-blue:   #1c2f4a;
+  --bg-yellow: #2e2800;
+  --bg-purple: #2a1a3e;
+
+  --separator:        rgba(84, 84, 88, 0.55);
+  --separator-opaque: #3a3a3c;
+
+  /* ---- editor bg = same as card surface ---- */
+  --editor-bg: #2c2c2e;
+
+  --mochi--card--background:              var(--bg1);
+  --mochi--card-box--background:          var(--bg1);
+  --mochi--button--background:            var(--bg2);
+  --mochi--side-bar--background:          var(--bg-dim);
+  --mochi--card--background-hover:        var(--blue-hover);
+  --mochi--box-select--background:        var(--bg1);
+  --mochi--box-select--background-hover:  var(--blue-hover);
+  --mochi--side-bar-icon--color:          var(--blue);
+  --mochi--review-history--row-background-dark: var(--bg-dim);
+  --mochi--button-hover--background:      var(--blue-dim);
+  --mochi----border-color:                var(--separator-opaque);
+  --mochi--side-bar-item-selected--background: var(--blue-dim);
+}
+
+html:not(.dark) {
+  --bg-dim:    #f2f2f7;
+  --bg0:       #ffffff;
+  --bg1:       #f2f2f7;
+  --bg2:       #e5e5ea;
+  --bg3:       #d1d1d6;
+  --bg4:       #c7c7cc;
+  --bg5:       #aeaeb2;
+
+  --fg:           #1c1c1e;
+  --fg-secondary: rgba(60, 60, 67, 0.6);
+  --fg-tertiary:  rgba(60, 60, 67, 0.3);
+
+  --blue:      #007aff;
+  --blue-dim:  #e8f1ff;
+  --blue-soft: #d0e4ff;
+  --blue-hover:#eef5ff;
+
+  --red:       #ff3b30;
+  --orange:    #ff9500;
+  --yellow:    #ffcc00;
+  --green:     #34c759;
+  --aqua:      #32ade6;
+  --purple:    #af52de;
+  --pink:      #ff2d55;
+
+  --bg-red:    #fff2f2;
+  --bg-green:  #f0fff4;
+  --bg-blue:   #e8f1ff;
+  --bg-yellow: #fffde0;
+  --bg-purple: #f8f0ff;
+
+  --separator:        rgba(60, 60, 67, 0.22);
+  --separator-opaque: #d1d1d6;
+
+  /* ---- editor bg = same as card surface ---- */
+  --editor-bg: #ffffff;
+
+  --mochi--card--background:              var(--bg0);
+  --mochi--card-box--background:          var(--bg0);
+  --mochi--button--background:            var(--bg0);
+  --mochi--side-bar--background:          var(--bg1);
+  --mochi--card--background-hover:        var(--blue-hover);
+  --mochi--box-select--background:        var(--bg1);
+  --mochi--box-select--background-hover:  var(--blue-hover);
+  --mochi--side-bar-icon--color:          var(--blue);
+  --mochi--review-history--row-background-dark: var(--bg2);
+  --mochi--button-hover--background:      var(--blue-dim);
+  --mochi----border-color:                var(--separator-opaque);
+  --mochi--side-bar-item-selected--background: var(--blue-dim);
+}
+
+html body {
+  --fonts-monospace: "SF Mono", "Fira Code", ui-monospace, monospace;
+  --fonts-ui: "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+
+  --mochi--review-button--background:         var(--mochi--side-bar--background);
+  --mochi--card--color:                       var(--fg);
+  --mochi--md-code--background:               var(--bg2);
+  --mochi--cloze-2--background-color:         var(--mochi--side-bar--background);
+  --mochi----background-color:                var(--bg0);
+  --mochi--jump-to--selection-bg:             var(--bg-blue);
+  --mochi--show-more--background:             var(--mochi--side-bar--background);
+  --mochi--show-more--background-hover:       var(--bg3);
+  --mochi--progressbar--foreground:           var(--blue);
+  --mochi--inverted-button--background:       var(--blue);
+  --mochi--inverted-button--count-background: var(--blue-dim);
+  --mochi--inverted-button-hover--background: #005ecb;
+  --mochi--progressbar--foreground-red:       var(--red);
+  --mochi--re-review--icon:                   var(--red);
+  --mochi--card--border-color-active:         var(--blue);
+
+  font-family: var(--fonts-ui);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+/* ============================================ */
+/* ============= memo_views edits ============= */
+/* ============================================ */
+
+/* ------------ Main frame background --------- */
+/* No dot pattern — cleaner, more Things-like   */
+.memo_views_frame_frame-container {
+  background-color: var(--bg1);
+}
+.dark .memo_views_frame_frame-container {
+  background-color: var(--bg-dim);
+}
+
+/* Fix dashboard overview bg anomaly */
+.memo_views_pages_layout_frame-content > div:nth-child(3) {
+  background-color: initial !important;
+}
+
+/* -------------- Show More gradient ---------- */
+.memo_views_atoms_card_tile-fade {
+  background: linear-gradient(0deg, var(--bg0), var(--bg0) 33px, transparent);
+}
+.dark .memo_views_atoms_card_tile-fade {
+  background: linear-gradient(0deg, var(--bg1), var(--bg1) 33px, transparent);
+}
+.memo_views_card_list-view_card-container:hover .memo_views_atoms_card_tile-fade,
+.memo_views_card_grid-view_card-container:hover .memo_views_atoms_card_tile-fade {
+  background: linear-gradient(0deg, var(--blue-hover), var(--blue-hover) 33px, transparent);
+}
+.dark .memo_views_card_list-view_card-container:hover .memo_views_atoms_card_tile-fade,
+.dark .memo_views_card_grid-view_card-container:hover .memo_views_atoms_card_tile-fade {
+  background: linear-gradient(0deg, var(--blue-hover), var(--blue-hover) 33px, transparent);
+}
+
+/* ---- FIX 1: Editor background uniform ----- */
+/* Mochi nests multiple bg layers in edit mode. */
+/* We flatten them all to --editor-bg.          */
+
+/* Layer 1: the outer right-column container */
+.memo_views_card_column-view_right-column-container {
+  color: var(--fg);
+  background-color: var(--editor-bg) !important;
+  padding: 0;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Layer 2: the editor wrapper itself */
+.memo_views_modal_card_editor-background {
+  background-color: var(--editor-bg) !important;
+  background: var(--editor-bg) !important;
+  font-size: 0.95em !important;
+  box-shadow: none !important;
+  border: none !important;
+  outline: none !important;
+}
+
+/* Layer 3: any direct children that get their own bg */
+.memo_views_modal_card_editor-background > *,
+.memo_views_card_column-view_right-column-container > * {
+  background-color: transparent !important;
+}
+
+/* Layer 4: CodeMirror / ProseMirror editor surface */
+.memo_views_modal_card_editor-background .cm-editor,
+.memo_views_modal_card_editor-background .ProseMirror,
+.memo_views_modal_card_editor-background [class*="editor"] {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Layer 5: catch-all for any mochi-namespaced wrapper inside the editor */
+[class*="memo_views_modal_card_editor"] {
+  background-color: var(--editor-bg) !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Cards font color */
+.memo_views_modal_modal-dialog {
+  color: var(--fg);
+  font-family: var(--fonts-ui);
+}
+
+/* Fix filter menu colors in dark mode */
+.dark .memo_views_atoms_menu_menu {
+  color: var(--fg-secondary);
+}
+
+/* Cloze — blue accent */
+.memo_views_diagrams_diagram-cloze {
+  background-color: var(--bg-blue);
+  color: var(--blue);
+  border-radius: 3px;
+  padding: 0 3px;
+}
+.dark .memo_views_diagrams_diagram-cloze {
+  background-color: var(--blue-dim);
+}
+
+/* Smooth scroll */
+.memo_views_modal_modal-container {
+  scroll-behavior: smooth;
+}
+
+/* ---- Buttons — flat, slightly square -------- */
+.memo_views_atoms_button_default-button,
+.memo_views_atoms_button_inverted-button {
+  border-radius: 6px !important;
+  font-family: var(--fonts-ui) !important;
+  font-weight: 500 !important;
+  font-size: 0.875em !important;
+  letter-spacing: -0.01em !important;
+  transition: background-color 0.12s ease, box-shadow 0.12s ease, transform 0.08s ease !important;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.07) !important;
+}
+.memo_views_atoms_button_default-button:hover,
+.memo_views_atoms_button_inverted-button:hover {
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1) !important;
+  transform: translateY(-0.5px) !important;
+}
+.memo_views_atoms_button_default-button:active,
+.memo_views_atoms_button_inverted-button:active {
+  transform: translateY(0) !important;
+  box-shadow: none !important;
+}
+.dark .memo_views_atoms_button_default-button,
+.dark .memo_views_atoms_button_inverted-button {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3) !important;
+}
+
+/* ---- Grid view ----------------------------- */
+.memo_views_card_grid-view_container {
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 10px;
+  padding: 16px !important;
+}
+
+/* ---- Card tiles — Things 3, slightly squarer */
+.memo_views_card_list-view_card-container,
+.memo_views_card_grid-view_card-container {
+  border-radius: 6px !important;
+  transition: background-color 0.12s ease, box-shadow 0.12s ease !important;
+}
+.memo_views_card_list-view_card-container:hover,
+.memo_views_card_grid-view_card-container:hover {
+  background-color: var(--blue-hover) !important;
+}
+.dark .memo_views_card_list-view_card-container:hover,
+.dark .memo_views_card_grid-view_card-container:hover {
+  background-color: var(--blue-hover) !important;
+}
+
+/* ---- FIX 2: Remove the dividing line ------- */
+/* Also fix Cram button + adjacent icon spacing */
+
+/* Top-right toolbar: add gap between Cram and the chevron/icon next to it */
+[class*="memo_views_pages_deck_toolbar"],
+[class*="memo_views_pages_layout_toolbar"],
+[class*="toolbar"] {
+  gap: 6px !important;
+}
+
+/* The Cram button specifically */
+[class*="cram-button"],
+[class*="memo_views"][class*="cram"] {
+  margin-right: 4px !important;
+}
+
+/* Generic top-bar button cluster — ensure spacing between pill buttons */
+[class*="memo_views_atoms_button_inverted-button"] + [class*="memo_views_atoms_button"],
+[class*="memo_views_atoms_button"] + [class*="memo_views_atoms_button"] {
+  margin-left: 5px !important;
+}
+
+/* Icon buttons in the top-right corner */
+[class*="memo_views_pages"][class*="icon-button"],
+[class*="toolbar"] button,
+[class*="toolbar"] [role="button"] {
+  margin: 0 2px !important;
+}
+/* The left column has border-right that shows  */
+/* as the vertical line in the screenshot.      */
+/* We remove it and let the bg difference show. */
+.memo_views_card_column-view_left-column-container {
+  width: 300px;
+  border-left: none !important;
+  border-right: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  background-color: var(--bg1);
+}
+.dark .memo_views_card_column-view_left-column-container {
+  background-color: var(--bg1);
+}
+
+/* The outer wrapper that holds both columns —  */
+/* gives a subtle inner shadow on the left edge */
+/* of the right column instead of a hard line.  */
+.memo_views_card_column-view_right-column-outer-container {
+  border-radius: 0;
+  margin: 0;
+  border: none;
+  border-left: 1px solid var(--separator) !important;
+  box-shadow: none;
+  background-color: var(--editor-bg);
+  flex: 1;
+  /* Squarer feel */
+  overflow: hidden;
+}
+.dark .memo_views_card_column-view_right-column-outer-container {
+  border-left-color: var(--separator) !important;
+  background-color: var(--editor-bg);
+}
+
+.memo_views_pages_deck_breadcrumbs-container {
+  border: none !important;
+  background-color: transparent !important;
+}
+
+/* Heading font sizes in cards */
+.memo_views_card_column-view_column-row-markdown-container h1,
+.memo_views_card_grid-view_card-container h1 {
+  font-size: 1em !important;
+  font-weight: 600 !important;
+}
+.memo_views_card_column-view_column-row-markdown-container h2,
+.memo_views_card_column-view_column-row-markdown-container h3,
+.memo_views_card_column-view_column-row-markdown-container h4,
+.memo_views_card_grid-view_card-container h2,
+.memo_views_card_grid-view_card-container h3,
+.memo_views_card_grid-view_card-container h4 {
+  font-size: 0.9em !important;
+}
+
+/* Reset opacity */
+.memo_views_card_column-view_column-row-markdown-container .paragraph {
+  opacity: 1;
+}
+
+/* Remove divider lines in note footer */
+.memo_views_molecules_card-info_content-wrapper > div + div {
+  border: none;
+  margin-top: 0;
+}
+
+/* Remove box shadow on column rows */
+.memo_views_card_column-view_column-row-container {
+  box-shadow: none;
+  border-radius: 5px !important;
+  transition: background-color 0.1s ease !important;
+  margin: 2px 4px !important;
+}
+
+.memo_views_card_column-view_editor-styles {
+  padding: 2.5em 3em 30vh 3em;
+}
+
+.memo_views_card_column-view_side-class {
+  padding: 2.5em 3em 5em;
+}
+
+/* -------------------------------------------- */
+/* ======= Sidebar — Things 3 polish ========== */
+/* -------------------------------------------- */
+
+/* Sidebar base */
+[class*="memo_views_nav"],
+[class*="side-bar"] {
+  font-family: var(--fonts-ui) !important;
+}
+
+/* Sidebar items — slightly bigger text, less round */
+[class*="memo_views_nav_item"],
+[class*="side-bar-item"] {
+  border-radius: 5px !important;
+  transition: background-color 0.1s ease !important;
+  font-size: 0.92em !important;       /* was 0.88 */
+  font-weight: 450 !important;
+  letter-spacing: -0.005em !important;
+  padding-top: 3px !important;
+  padding-bottom: 3px !important;
+}
+
+/* Sidebar icons: scale up slightly */
+[class*="memo_views_nav_item"] svg,
+[class*="side-bar-item"] svg,
+[class*="side-bar-icon"] svg {
+  width: 17px !important;   /* was typically 14-15px */
+  height: 17px !important;
+}
+
+/* Selected sidebar item */
+[class*="memo_views_nav_item--selected"],
+[class*="side-bar-item--selected"],
+[class*="side-bar-item-selected"] {
+  background-color: var(--mochi--side-bar-item-selected--background) !important;
+  color: var(--blue) !important;
+  font-weight: 600 !important;
+}
+
+/* Deck/section labels */
+[class*="memo_views_pages_nav_section"] {
+  font-size: 0.7em !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.07em !important;
+  text-transform: uppercase !important;
+  color: var(--fg-secondary) !important;
+  padding-left: 8px !important;
+  margin-top: 18px !important;
+  margin-bottom: 4px !important;
+}
+
+/* ============================================ */
+/* ============ Icon Overrides ================ */
+/* Uses SVG data URIs to replace default icons  */
+/* with cleaner, Things-3-style SF-like glyphs  */
+/* ============================================ */
+
+/* Dashboard icon */
+[class*="memo_views_nav"][class*="dashboard"] svg,
+[class*="sidebar"][class*="dashboard"] svg {
+  opacity: 0;
+}
+[class*="memo_views_nav"][class*="dashboard"]::before,
+[class*="sidebar"][class*="dashboard"]::before {
+  content: "";
+  display: inline-block;
+  width: 16px; height: 16px;
+  background-color: var(--mochi--side-bar-icon--color);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='3' width='7' height='7' rx='1'/%3E%3Crect x='14' y='3' width='7' height='7' rx='1'/%3E%3Crect x='3' y='14' width='7' height='7' rx='1'/%3E%3Crect x='14' y='14' width='7' height='7' rx='1'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='3' width='7' height='7' rx='1'/%3E%3Crect x='14' y='3' width='7' height='7' rx='1'/%3E%3Crect x='3' y='14' width='7' height='7' rx='1'/%3E%3Crect x='14' y='14' width='7' height='7' rx='1'/%3E%3C/svg%3E");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+/* ============================================ */
+/* =========== memo_markdown edits ============ */
+/* ============================================ */
+
+/* Tags — subtle rect pill, slightly squarer */
+.memo_markdown_components_tag-link {
+  font-family: var(--fonts-monospace);
+  font-size: 0.76em;
+  padding: 2px 7px;
+  border-radius: 4px;
+  border: 1px solid var(--separator-opaque);
+  background-color: var(--bg2);
+  color: var(--fg-secondary);
+  letter-spacing: 0.01em;
+  transition: background-color 0.1s ease;
+}
+.memo_markdown_components_tag-link:hover {
+  background-color: var(--bg3);
+}
+
+/* Inline code */
+code:not(pre code):not(kbd code) {
+  color: var(--blue) !important;
+  background-color: var(--bg-blue);
+  border: none;
+  border-radius: 4px;
+  padding: 0.1em 0.4em;
+  white-space: nowrap;
+  margin: 0 0.05em;
+  font-family: var(--fonts-monospace);
+  font-size: 0.88em !important;
+}
+.dark code:not(pre code):not(kbd code) {
+  background-color: var(--blue-dim);
+}
+
+/* Highlighted text == mark */
+.memo_markdown_styles_markdown-class mark {
+  border-radius: 3px;
+  color: #1a1400;
+  background-color: var(--yellow);
+  background-image: none;
+  padding: 0.1em 0.3em;
+  margin: 0;
+  vertical-align: middle;
+  font-weight: 500;
+}
+.dark .memo_markdown_styles_markdown-class mark {
+  color: #1a1400;
+  background-color: #b89000;
+}
+
+/* Reference card links */
+.memo_markdown_components_inline-link {
+  background: var(--bg-blue);
+  border: 1px solid var(--blue-soft);
+  border-radius: 3px;
+  color: var(--blue) !important;
+  transition: background-color 0.1s ease;
+  padding: 1px 4px;
+}
+.memo_markdown_components_inline-link:hover {
+  background: var(--blue-soft);
+}
+.dark .memo_markdown_components_inline-link {
+  background: var(--blue-dim);
+  border-color: var(--blue-soft);
+}
+.dark .memo_markdown_components_inline-link:hover {
+  background: var(--blue-soft);
+}
+
+/* Monospace font size */
+.memo_markdown_styles_markdown-class code,
+.memo_markdown_styles_markdown-class pre {
+  font-size: 0.9em !important;
+}
+
+/* Footnote links */
+.memo_markdown_components_blue-link {
+  color: var(--blue);
+  opacity: 1;
+}
+h1 .memo_markdown_components_blue-link,
+h2 .memo_markdown_components_blue-link,
+h3 .memo_markdown_components_blue-link,
+h4 .memo_markdown_components_blue-link,
+h5 .memo_markdown_components_blue-link,
+h6 .memo_markdown_components_blue-link {
+  font-size: initial;
+}
+
+/* ============================================ */
+/* =========== Raw HTML tags ================== */
+/* ============================================ */
+
+strong {
+  font-weight: 600;
+  color: inherit;
+}
+
+em {
+  color: var(--blue);
+  font-style: italic;
+}
+
+strong em {
+  color: var(--purple);
+  font-weight: 600;
+}
+
+/* ============================================ */
+/* =============== Headings =================== */
+/* ============================================ */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--fonts-ui);
+  font-weight: 600 !important;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+h1 { font-size: 2em !important; }
+h2 { font-size: 1.6em !important; }
+h3 { font-size: 1.3em !important; }
+h4 { font-size: 1.1em !important; }
+h5 { font-size: 1em !important;   font-weight: 500 !important; }
+h6 { font-size: 0.95em !important; font-weight: 500 !important; }
+
+/* Things 3 color hierarchy: mostly fg, one blue accent */
+h1 { color: var(--fg); }
+h2 { color: var(--fg); }
+h3 { color: var(--blue); }
+h4 { color: var(--fg-secondary); }
+h5 { color: var(--fg-secondary); }
+h6 { color: var(--fg-tertiary); }
+
+/* ============================================ */
+/* ============= Keyboard (kbd) =============== */
+/* ============================================ */
+
+kbd {
+  font-family: var(--fonts-monospace);
+  font-size: 0.8em;
+  color: var(--fg) !important;
+  background: var(--bg1);
+  border: 1px solid var(--separator-opaque);
+  border-radius: 4px;
+  padding: 0.12em 0.5em;
+  margin: 0 0.1em;
+  white-space: nowrap;
+  box-shadow: 0 1px 0 1px var(--separator-opaque) !important;
+}
+.dark kbd {
+  background: var(--bg2);
+  box-shadow: 0 1px 0 1px var(--bg3) !important;
+}
+
+/* ============================================ */
+/* ================ Tables ==================== */
+/* ============================================ */
+
+table {
+  border-radius: 6px;
+  overflow: hidden;
+  border-collapse: collapse;
+  font-size: 0.94em;
+  border: 1px solid var(--separator-opaque);
+  width: 100%;
+  margin: 1em 0;
+}
+
+thead tr {
+  background-color: var(--bg2);
+  color: var(--fg-secondary);
+  font-size: 0.78em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.dark thead tr {
+  background-color: var(--bg3);
+}
+
+thead th {
+  padding: 9px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--separator-opaque);
+}
+
+tbody td {
+  padding: 8px 14px;
+  border-bottom: 1px solid var(--separator);
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr:nth-child(odd)  { background-color: var(--bg0); }
+tbody tr:nth-child(even) { background-color: var(--bg1); }
+
+.dark tbody tr:nth-child(odd)  { background-color: var(--bg1); }
+.dark tbody tr:nth-child(even) { background-color: var(--bg2); }
+
+tbody tr:hover { background-color: var(--bg-blue) !important; }
+.dark tbody tr:hover { background-color: var(--blue-hover) !important; }
+
+/* ============================================ */
+/* ================= Lists ==================== */
+/* ============================================ */
+
+ol > li,
+ul > li {
+  position: relative;
+  line-height: 1.65;
+}
+
+ol > li { list-style-type: none; }
+
+/* Numbered bullet — circle with blue ring */
+ol > li::before {
+  --bullet-size: 1.3rem;
+  content: counter(list-item);
+  position: absolute;
+  top: 0.3rem;
+  inset-inline-start: -1.8rem;
+  width: var(--bullet-size);
+  height: var(--bullet-size);
+  line-height: var(--bullet-size);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--blue);
+  background-color: var(--bg-blue);
+  border-radius: 99rem;
+  border: 1.5px solid var(--blue);
+  font-family: var(--fonts-ui);
+  letter-spacing: -0.01em;
+}
+.dark ol > li::before {
+  background-color: var(--blue-dim);
+}
+
+/* Indent guides */
+ol > li::after,
+ul > li::after {
+  content: "";
+  position: absolute;
+  top: 2rem;
+  bottom: 4px;
+  inset-inline-start: -1.1rem;
+  width: 1px;
+  background-color: var(--separator);
+  border-radius: 1px;
+}
+ul > li::after {
+  inset-inline-start: -0.9rem;
+}
+
+/* ============================================ */
+/* ============= Custom tags ================== */
+/* ============================================ */
+
+hlr, hla {
+  font-family: var(--fonts-monospace);
+  font-size: 0.86em;
+  padding: 2px 7px;
+  border-radius: 5px;
+  border: 1px solid;
+  font-weight: 500;
+}
+hlr {
+  color: var(--red);
+  background-color: var(--bg-red);
+  border-color: color-mix(in srgb, var(--red) 40%, transparent);
+}
+hla {
+  color: var(--orange);
+  background-color: var(--bg-yellow);
+  border-color: color-mix(in srgb, var(--orange) 40%, transparent);
+}
+
+/* ============================================ */
+/* =========== Syntax highlighting ============ */
+/* ============================================ */
+
+.hljs {
+  color: var(--fg) !important;
+  background: var(--bg2) !important;
+  border-radius: 6px !important;
+  padding: 1.1em 1.3em !important;
+  font-family: var(--fonts-monospace) !important;
+  font-size: 0.88em !important;
+  border: 1px solid var(--separator-opaque) !important;
+}
+.dark .hljs {
+  background: var(--bg-dim) !important;
+  border-color: var(--separator-opaque) !important;
+}
+
+.hljs-comment, .hljs-quote,
+.dark .hljs-comment, .dark .hljs-quote {
+  color: var(--bg5); font-style: italic;
+}
+.hljs-keyword, .hljs-doctag, .hljs-formula, .hljs-number,
+.dark .hljs-keyword, .dark .hljs-doctag, .dark .hljs-formula, .dark .hljs-number {
+  color: var(--purple);
+}
+.hljs-section, .hljs-name, .hljs-selector-tag, .hljs-deletion, .hljs-subst,
+.dark .hljs-section, .dark .hljs-name, .dark .hljs-selector-tag, .dark .hljs-deletion, .dark .hljs-subst {
+  color: var(--red);
+}
+.hljs-literal, .dark .hljs-literal { color: var(--aqua); }
+.hljs-string, .hljs-regexp, .hljs-addition, .hljs-attribute, .hljs-meta-string,
+.dark .hljs-string, .dark .hljs-regexp, .dark .hljs-addition, .dark .hljs-attribute, .dark .hljs-meta-string {
+  color: var(--green);
+}
+.hljs-built_in, .hljs-class .hljs-title,
+.dark .hljs-built_in, .dark .hljs-class .hljs-title { color: var(--yellow); }
+.hljs-attr, .hljs-variable, .hljs-template-variable, .hljs-type,
+.hljs-selector-class, .hljs-selector-attr, .hljs-selector-pseudo,
+.dark .hljs-attr, .dark .hljs-variable, .dark .hljs-template-variable, .dark .hljs-type,
+.dark .hljs-selector-class, .dark .hljs-selector-attr, .dark .hljs-selector-pseudo {
+  color: var(--orange);
+}
+.hljs-symbol, .hljs-bullet, .hljs-link, .hljs-meta, .hljs-selector-id, .hljs-title,
+.dark .hljs-symbol, .dark .hljs-bullet, .dark .hljs-link, .dark .hljs-meta,
+.dark .hljs-selector-id, .dark .hljs-title {
+  color: var(--blue);
+}
