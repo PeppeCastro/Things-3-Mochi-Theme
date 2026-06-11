@@ -1,5 +1,5 @@
 # Things-3-Mochi-Theme
-A theme inspired by Things 3 for Mochi Cards
+A theme inspired by Things 3 for [Mochi](https://mochi.cards/)
 
 # How to Install
 1. From the Mochi app, go in the Appearance tab in the settings.
